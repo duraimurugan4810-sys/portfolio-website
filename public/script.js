@@ -16,30 +16,39 @@ form.addEventListener("submit", async function (event) {
     };
 
     try {
-        const response = await fetch("http://127.0.0.1:5000/api/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
-        });
+    
+const response = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    },
+    body: JSON.stringify({
+        access_key: "ead42cfa-d901-434e-8153-fa2acbf91337",
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        subject: "New Portfolio Contact Message",
+        from_name: "Durai Murugan Portfolio"
+    })
+});
 
-        const result = await response.json();
+const result = await response.json();
 
-        if (!response.ok) {
-            throw new Error(result.error || "Message could not be sent.");
-        }
+if (!response.ok || !result.success) {
+    throw new Error(result.message || "Message could not be sent.");
+}
 
-        statusMessage.textContent = "Message sent successfully!";
-        form.reset();
+statusMessage.textContent = "Message sent successfully!";
+form.reset();
 
-    } catch (error) {
-        statusMessage.textContent =
-            "Unable to send message. Please check whether the Python backend is running.";
-        console.error(error);
+} catch (error) {
+    statusMessage.textContent =
+        error.message || "Unable to send message.";
+    console.error(error);
 
-    } finally {
-        button.disabled = false;
-        button.textContent = "Send Message";
-    }
+} finally {
+    button.disabled = false;
+    button.textContent = "Send Message";
+}
 });
