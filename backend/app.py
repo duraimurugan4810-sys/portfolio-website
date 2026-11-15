@@ -16,7 +16,7 @@ CORS(app, origins=[
     "http://localhost:5500"
 ])
 
-DATABASE = Path(__file__).with_name("messages.db")
+DATABASE = Path("/tmp/messages.db")
 
 
 def init_db():
