@@ -1,38 +1,48 @@
+
 # Personal Portfolio Website
 
-A responsive personal portfolio for an AI & Machine Learning student.
+A responsive personal portfolio website for a second-year Computer Science and Engineering student specializing in Artificial Intelligence and Machine Learning.
 
-## Project structure
+## Project Structure
 
-- `frontend/` — HTML, CSS and JavaScript portfolio
-- `backend/` — Flask API and SQLite message storage
+- `frontend/` — HTML, CSS and JavaScript portfolio.
+- `backend/` — Python Flask API and SQLite message storage.
 
-## Run the frontend
+## Technologies Used
 
-Open `frontend/index.html` with VS Code Live Server.
+- Frontend: HTML, CSS, JavaScript
+- Backend: Python, Flask
+- Database: SQLite
+- Version Control: Git and GitHub
 
-## Run the Python backend
+## Run the Frontend
+
+Open `frontend/index.html` using VS Code Live Server.
+
+## Run the Python Backend
 
 From the project root:
 
-```bash
+```powershell
 cd backend
 python -m venv .venv
-```
-
-Windows PowerShell:
-
-```powershell
 .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 python app.py
 ```
 
-The API health check is available at `http://127.0.0.1:5000/api/health`.
+API health check:
 
-The contact form stores messages in `backend/messages.db`.
+`http://127.0.0.1:5000/api/health`
 
-## Before publishing
+The contact form stores messages in the SQLite database.
 
-Replace the sample name, initials, email address, GitHub and LinkedIn links in `frontend/index.html`.
-Replace sample project descriptions with work you have actually completed. Do not claim skills, certificates or achievements you do not have.
+## Features
+
+- Responsive portfolio website.
+- About, skills, projects and certifications sections.
+- Python Flask backend.
+- Contact form API.
+- SQLite message storage.
+
+
